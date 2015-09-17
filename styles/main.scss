@@ -1,0 +1,94 @@
+// body{
+// 	background-color: #EDEEEF;
+// 	margin: 0;
+
+// }
+.background{
+	background-color: #E0E1E2;
+	text-align: center;
+	padding: 2em 5em;
+}
+nav{
+	background-color: #88BE24;
+	button{
+		background-color: #19A3C5;
+		height: 2em;
+		border-radius: 2em;
+		width: 2em;
+		padding-bottom: 7px;
+		font-size: 1.5em;
+		margin: .5em 2.5em;
+		border: none;
+		color: white;
+		border-image: none;
+	}
+}
+#form{
+	background-color: white;
+	text-align: center;
+	padding-bottom: 3em;
+	div{
+		input{
+			margin-top: 2em;
+			width: 60%;
+			height: 2.5em;
+			border-image: none;
+		}
+		textarea{
+			border-image: none;
+			border: 1px solid #D6D6D6;
+			width: 60%;
+			height: 3em;
+			margin-top: .8em;
+			margin-bottom: 1em;
+		}
+		
+	}
+	#cancel{
+		border-image: none;
+		border: none;
+		height: 3em;
+		width:20%;
+		margin-left: 20%;
+		border-radius: 5%;
+	}
+	#add{
+		border-image: none;
+		border: none;
+		height: 3em;
+		width:20%;
+		background-color: #1FAB1C;
+		border-radius: 5%;
+	}
+}
+.actualPic{
+	height: 100%;
+	width: 100%;
+}
+.commentsMade{
+	background-color: white;
+	padding: 1em 1em;
+	margin-bottom: 2em;
+}
+#error{
+	margin: 1em 1em;
+	color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 48em){
+	.body{
+		padding: 0 10%;
+		background-color: #EDEEEF;
+	}
+}
+
