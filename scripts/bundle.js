@@ -9,18 +9,11 @@ $(document).ready(function () {
 	var cancel = $('#cancel');
 	var add = $('#add');
 	var section = $('#section');
-	var url = 'http://tiyfe.herokuapp.com/collections/Picdom';
+	var url = 'http://tiyfe.herokuapp.com/collections/fee';
 	var error = $('#error');
 
 	$form.hide();
 	console.log('hiding form');
-
-	$.get(url, function (response) {
-		section.val('');
-		response.forEach(function (response) {
-			section.append('<div class="pic"><img class="actualPic"src="' + response.local + '"></div><div class="commentsMade">' + response.texts + '</div>');
-		});
-	});
 
 	dropDown.click(function () {
 		$form.toggle('slow');
@@ -36,13 +29,16 @@ $(document).ready(function () {
 
 	add.click(function (e) {
 		e.preventDefault();
-		error.html('');
-		if ((picURL.val().indexOf('jpeg') !== -1 || picURL.val().indexOf('png') !== -1) && comments.val() !== '') {
+
+		if ((picURL.val().toLowerCase().indexOf('jpg') !== -1 || picURL.val().toLowerCase().indexOf('jpeg') !== -1 || picURL.val().toLowerCase().indexOf('png') !== -1 || picURL.val().toLowerCase().indexOf('gif') !== -1) && comments.val() !== '') {
 			$.post(url, {
-				local: picURL.val(),
-				texts: comments.val()
+				photo: picURL.val(),
+				caption: comments.val()
 			}, function (response) {
 				console.log(response);
+				$form.toggle('slow');
+				picURL.val('');
+				comments.val('');
 			}, 'json');
 		} else {
 			error.html('Make sure picture is jpeg or png and there is a comment.');
@@ -53,10 +49,10 @@ $(document).ready(function () {
 		$.get(url, function (response) {
 			section.html('');
 			response.forEach(function (response) {
-				section.append('<div class="pic"><img class="actualPic"src="' + response.local + '"></div><div class="commentsMade">' + response.texts + '</div>');
+				section.append('<div class="pic"><img class="actualPic" src="' + response.photo + '"></div><div class="commentsMade">' + response.caption + '</div>');
 			});
 		});
-	}, 2000);
+	}, 500);
 });
 
 },{}]},{},[1])
