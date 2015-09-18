@@ -1,10 +1,56 @@
+body {
+  margin: 0; }
+
+.loginBackground {
+  z-index: 99000;
+  position: fixed;
+  background-color: rgba(48, 48, 45, 0.9);
+  height: 100%;
+  width: 100%; }
+
+.loginForm {
+  text-align: center;
+  background-color: #5BA1C4;
+  margin: 10% 25% 0 25%;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border: 2px solid #62AB28; }
+
+.please {
+  font-size: 2em;
+  font-family: cursive;
+  font-weight: bold;
+  padding-bottom: 1em; }
+
+.username {
+  width: 40%;
+  margin: .5em 0;
+  height: 2em; }
+
+.password {
+  width: 40%;
+  margin: .5em 0;
+  height: 2em; }
+
+.loginButton {
+  margin-top: .5em;
+  font-size: 1.1em;
+  font-family: sans-serif;
+  margin-bottom: 2em;
+  height: 2em;
+  background-image: linear-gradient(#9EC52E, #62AB28); }
+
 .background {
   background-color: #E0E1E2;
   text-align: center;
-  padding: 2em 5em; }
+  padding: 2em 5em;
+  padding-top: 5em; }
 
 nav {
-  background-color: #88BE24; }
+  background-color: #88BE24;
+  position: fixed;
+  z-index: 9000;
+  width: 100%; }
   nav button {
     background-color: #19A3C5;
     height: 2em;
@@ -18,9 +64,13 @@ nav {
     border-image: none; }
 
 #form {
+  position: fixed;
+  z-index: 900;
+  top: 4.5em;
   background-color: white;
   text-align: center;
-  padding-bottom: 3em; }
+  padding-bottom: 1em;
+  width: 100%; }
   #form div input {
     margin-top: 2em;
     width: 60%;
@@ -49,8 +99,9 @@ nav {
     border-radius: 5%; }
 
 .actualPic {
-  height: 100%;
-  width: 100%; }
+  height: 80%;
+  width: 100%;
+  border: 1px solid black; }
 
 .commentsMade {
   background-color: white;
@@ -64,4 +115,7 @@ nav {
 @media screen and (min-width: 48em) {
   .body {
     padding: 0 10%;
-    background-color: #EDEEEF; } }
+    background-color: #EDEEEF; }
+  .incoming {
+    width: 70%;
+    margin-left: 15%; } }

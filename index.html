@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="/styles/main.sass.css">
 </head>
@@ -10,11 +11,23 @@
 	<nav>
 		<button id="dropDown">+</button>
 	</nav>
-	<!-- <form id="loginForm">
-		<input type="text" id="userName" placeholer="Username">
-		<input type="password" id="password" placeholer="Username">
-		<button></button>
-	</form> -->
+	<div class="loginBackground">
+		<form id="signupForm" class="loginForm">
+			<div class="please">Sign Up Here</div>
+			<div><input type="text" id="newUsername" class="username" placeholder="Username"></div>
+			<div><input type="password" id="newPassword" class="password" placeholder="Password"></div>
+
+			<div><button id="signupButton" class="loginButton">Log In</button></div>
+			
+		</form>
+		<form id="loginForm" class="loginForm">
+			<div class="please">Please Log-In To See Pics</div>
+			<div><input type="text" id="username" class="username" placeholder="Username"></div>
+			<div><input type="password" id="password" class="password" placeholder="Password"></div>
+			<div><button id="loginButton" class="loginButton" >Log In</button></div>
+			<div>Don't have an account? Click <a href="#" id="getAccount">HERE</a> to make a new account.</div>
+		</form>
+	</div>
 	<form id="form">
 		<div><input type="text" id="picURL" placeholder="Image URL"></div>
 		<div><textarea id="comments" placeholder="Type Comments Here"></textarea></div>
@@ -25,12 +38,6 @@
 	<div class="body">
 		<div class="background">
 			<section id="section"></section>
-
-
-
-
-
-
 
 		</div>
 	</div>
