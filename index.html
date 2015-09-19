@@ -10,22 +10,25 @@
 	
 	<nav>
 		<button id="dropDown">+</button>
+		<button id="logOut">Log Out</button>
 	</nav>
 	<div class="loginBackground">
 		<form id="signupForm" class="loginForm">
 			<div class="please">Sign Up Here</div>
 			<div><input type="text" id="newUsername" class="username" placeholder="Username"></div>
 			<div><input type="password" id="newPassword" class="password" placeholder="Password"></div>
-
-			<div><button id="signupButton" class="loginButton">Log In</button></div>
-			
+			<div><input type="password" id="newPasswordCheck" class="password" placeholder="Re-Enter Password"></div>
+			<div id="signupError" class="please"></div>
+			<button id="signupButton" class="loginButton">Log In</button>
+			<div><button id="cancelSignup">Cancel</button></div>
 		</form>
 		<form id="loginForm" class="loginForm">
 			<div class="please">Please Log-In To See Pics</div>
 			<div><input type="text" id="username" class="username" placeholder="Username"></div>
 			<div><input type="password" id="password" class="password" placeholder="Password"></div>
+			<div id="signinError" class="please"></div>
 			<div><button id="loginButton" class="loginButton" >Log In</button></div>
-			<div>Don't have an account? Click <a href="#" id="getAccount">HERE</a> to make a new account.</div>
+			<div class="dont">Don't have an account? Click <a href="#" id="getAccount">HERE</a> to make a new account.</div>
 		</form>
 	</div>
 	<form id="form">

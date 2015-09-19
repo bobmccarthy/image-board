@@ -8,6 +8,7 @@ $(document).ready(function () {
 	var comments = $('#comments');
 	var cancel = $('#cancel');
 	var add = $('#add');
+	var logOut = $('#logOut');
 	var section = $('#section');
 	var url = 'http://tiyfe.herokuapp.com/collections/fee';
 	var error = $('#error');
@@ -17,43 +18,88 @@ $(document).ready(function () {
 	var loginForm = $('#loginForm');
 	var username = $('#username');
 	var password = $('#password');
+	var signinError = $('#signinError');
 	var usersURL = 'http://tiyfe.herokuapp.com/collections/feeUsers';
 	var getAccount = $('#getAccount');
 
 	var signupForm = $('#signupForm');
 	var newUsername = $('#newUsername');
 	var newPassword = $('#newPassword');
+	var newPasswordCheck = $('#newPasswordCheck');
+	var signupError = $('#signupError');
+	var cancelSignup = $('#cancelSignup');
 	var user;
 
 	signupForm.hide();
 	$form.hide();
 
+	logOut.click(function () {
+		loginBackground.toggle('right');
+		loginForm.show();
+		signupForm.hide();
+		username.val('');
+		password.val('');
+		newUsername.val('');
+		newPassword.val('');
+		signupError.html('');
+	});
+
 	loginForm.submit(function (e) {
 		e.preventDefault();
 		user = username.val();
-		$.get(usersURL, function (response) {
-			for (var i = 0; i < response.length; i++) {
-				if (response[i].username === username.val() && response[i].password === password.val()) {
-					loginBackground.hide();
-					console.log(username);
-				}
-			}
-		}, 'json');
+		if (username.val() === '') {
+			signinError.html('Could Not Verify Sign-In, Try Again.');
+			password.val('');
+		} else if (password.val() === '') {
+			signinError.html('Could Not Verify Sign-In, Try Again.');
+		} else {
+			$.get(usersURL, function (response) {
+				for (var i = 0; i < response.length; i++) {
+					if (response[i].username === username.val() && response[i].password === password.val()) {
+						loginBackground.toggle('slow');
+						password.val('');
+						signinError.html('');
+					} else {
+						signinError.html('Could Not Verify Sign-In, Try Again.');
+					}
+				};
+			}, 'json');
+		};
 	});
 
 	getAccount.click(function () {
+		signinError.html('');
 		loginForm.toggle('down');
 		signupForm.toggle('up');
 	});
 
 	signupForm.submit(function (e) {
 		e.preventDefault();
-		$.post(usersURL, {
-			username: newUsername.val(),
-			password: newPassword.val()
-		}, 'json');
-		loginBackground.hide();
-		user = newUsername.val();
+		console.log(newPassword.val());
+		console.log(newPasswordCheck.val());
+		if (newUsername.val() === '') {
+			signupError.html('You Must Enter A Username.');
+		} else if (newPassword.val() === '') {
+			signupError.html('You Must Enter A Password.');
+		} else if (newPasswordCheck.val() === '') {
+			signupError.html('You Must Enter Your Password Again.');
+		} else if (newPassword.val() !== newPasswordCheck.val()) {
+			signupError.html('Passwords Must Match');
+		} else {
+			$.post(usersURL, {
+				username: newUsername.val(),
+				password: newPassword.val()
+			}, 'json');
+			loginBackground.hide();
+			user = newUsername.val();
+		}
+	});
+
+	cancelSignup.click(function (e) {
+		e.preventDefault();
+		signupForm.toggle('down');
+		loginForm.toggle('up');
+		signupError.html('');
 	});
 
 	dropDown.click(function () {

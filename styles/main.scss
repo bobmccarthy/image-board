@@ -9,7 +9,7 @@ body{
 	height: 100%;
 	width: 100%;
 }
-.loginForm{
+#loginForm{
 	text-align: center;
 	background-color: #5BA1C4;
 	margin: 10% 25% 0 25%;
@@ -17,8 +17,26 @@ body{
 	padding-bottom: 1em;
 	border: 2px solid #62AB28;
 }
+#signupForm{
+	text-align: center;
+	background-color: #5BA1C4;
+	margin: 10% 25% 0 25%;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	border: 2px solid #62AB28;
+
+}
+#cancelSignup{
+	margin-top: .5em;
+	font-size: 1.1em;
+	font-family: sans-serif;
+	margin-bottom: 2em;
+	height: 2em;
+	width: 20%;
+	background-image: linear-gradient(#D8AA78, #D8AA78);
+}
 .please{
-	font-size: 2em;
+	font-size: 2.3em;
 	font-family: cursive;
 	font-weight: bold;
 	padding-bottom: 1em;
@@ -31,7 +49,7 @@ body{
 }
 .password{
 	width: 40%;
-	margin: .5em 0;
+	margin: .5em 0 1em 0;
 	height: 2em;
 }
 .loginButton{
@@ -40,7 +58,14 @@ body{
 	font-family: sans-serif;
 	margin-bottom: 2em;
 	height: 2em;
+	width: 20%;
 	background-image: linear-gradient(#9EC52E, #62AB28);
+}
+.dont{
+	color: white;
+}
+#getAccount{
+	color: #F78563;
 }
 .background{
 	background-color: #E0E1E2;
@@ -55,7 +80,7 @@ nav{
 	position: fixed;
 	z-index:9000;
 	width: 100%;
-	button{
+	#dropDown{
 		background-color: #19A3C5;
 		height: 2em;
 		border-radius: 2em;
@@ -66,6 +91,14 @@ nav{
 		border: none;
 		color: white;
 		border-image: none;
+	}
+	#logOut{
+		float: right;
+		margin-right: 1em;
+		margin-top: 1em;
+		height: 2em;
+		color: white;
+		background-color: #19A3C5;
 	}
 }
 #form{
@@ -126,7 +159,18 @@ nav{
 	color: red;
 }
 
+#signupError{
+	color: red;
+	font-size: 1.5em;
+}
+#signinError{
+	color: red;
+	font-size: 1.5em;
+}
 
+#signupForm{
+	text-align: center;
+}
 
 
 
